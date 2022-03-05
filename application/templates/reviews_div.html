@@ -23,10 +23,47 @@
         </div>
         <div class="card-body">
           <div class="card-text">{{review.text}}</div>
-          <br>
-          <form class="input-group mb-3" method="POST" action="/create_comment/{{review.id}}">
-              <input type="text" id="text" name="text" class="form-control" placeholder="Comment something!"/>
-              <button type="submit" class="btn btn-primary">Comment</button>
+          <br />
+          <div class="collapse" id="comments-{{review.id}}">
+            <div class="card">
+              <div class="card-body" id="comments-expanded-{{review.id}}">
+                {% for comment in review.comments %}
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <a href="/reviews/{{comment.user.username}}"
+                      >{{comment.user.username}}</a
+                    >: {{comment.text}}
+                  </div>
+                  <div>
+                    <small class="text-muted"> {{comment.date_created}}</small>
+                    {% if user.id == comment.author or user.id == review.author %}
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown"></button>
+                      <ul class="dropdown-menu">
+                        <li>
+                          <a href="/delete_comment/{{comment.id}}"class="dropdown-item">Delete</a>
+                        </li>
+                      </ul>
+                    </div>
+                    {% endif %}
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <p class="card-text">
+            {% if review.comments|length > 0 %}
+            <a data-bs-toggle="collapse" href="#comments-{{review.id}}" role="button">
+              <small>View {{review.comments|length}} Comments</small>
+            </a>
+            {% else %}
+            <small class="text-muted">No Comments</small>
+            {% endif %}
+          </p>
+          <form class="input-group mb-3" method="POST" action="/create-comment/{{review.id}}">
+            <input type="text" id="text" name="text" class="form-control" placeholder="Comment something!"/>
+            <button type="submit" class="btn btn-primary">Comment</button>
           </form>
         </div>
         <div class="card-footer text-muted">{{review.date_created}}</div>
