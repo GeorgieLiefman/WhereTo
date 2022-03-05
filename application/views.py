@@ -29,3 +29,20 @@ def create_review():
             return redirect(url_for("views.home"))
 
     return render_template("create_review.html", user=current_user)
+
+
+@views.route("/delete_review/<id>", methods=["GET"])
+@login_required
+def delete_review(id):
+    review = Review.query.filter_by(id=id).first()
+
+    if not review:
+        flash("Review does not exist.", category="error")
+    elif current_user.id != review.id:
+        flash("You do not have permission to delete this post.", category="error")
+    else:
+        db.session.delete(review)
+        db.session.commit()
+        flash("Review deleted.", category="success")
+
+    return redirect(url_for("views.home"))
