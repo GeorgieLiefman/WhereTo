@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from flask_login import login_required, current_user
-from .models import Review, User
+from .models import Review, User, Comment
 from . import db
 
 views = Blueprint("views", __name__)
@@ -58,3 +58,22 @@ def reviews(username):
 
     reviews = Review.query.filter_by(author=user.id).all()
     return render_template("reviews.html", user=current_user, reviews=reviews, username=username)
+
+
+@views.route("/create_comment/<review_id>", methods=["POST"])
+@login_required
+def create_comment(review_id):
+    text = request.form.get("text")
+    if not text:
+        flash("Comment cannot be empty.", category="error")
+    else:
+        review = Review.query.filter_by(id=review_id)
+        if review:
+            comment = Comment(text=text, author=current_user.id, review_id=review_id)
+            db.session.add(comment)
+            db.session.commit()
+        else:
+            flash("Review does not exist.", category="error")
+
+    
+    return redirect(url_for("views.home"))
