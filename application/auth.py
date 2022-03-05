@@ -23,7 +23,7 @@ def login():
         else:
             flash("Email is not registered to a user.", category="error")  
 
-    return render_template("login.html")
+    return render_template("login.html", user=current_user)
 
 @auth.route("/sign_up", methods=["GET", "POST"])
 def sign_up():
@@ -56,7 +56,7 @@ def sign_up():
             return redirect(url_for("views.home"))
 
     
-    return render_template("signup.html")
+    return render_template("signup.html", user=current_user)
 
 @auth.route("/log_out", methods=["GET"])
 @login_required
