@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from flask_login import login_required, current_user
-from .models import Review
+from .models import Review, User
 from . import db
 
 views = Blueprint("views", __name__)
@@ -46,3 +46,15 @@ def delete_review(id):
         flash("Review deleted.", category="success")
 
     return redirect(url_for("views.home"))
+
+@views.route("/reviews/<username>", methods=["GET"])
+@login_required
+def reviews(username):
+    user = User.query.filter_by(username=username).first()
+
+    if not user:
+        flash("No user with that username exists.", category="error")
+        return redirect(url_for("views.home"))
+
+    review = Review.query.filter_by(author=user.id).all()
+    return render_template("reviews.html", user=current_user, reviews=reviews, username=username)
