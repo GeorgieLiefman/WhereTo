@@ -56,5 +56,5 @@ def reviews(username):
         flash("No user with that username exists.", category="error")
         return redirect(url_for("views.home"))
 
-    review = Review.query.filter_by(author=user.id).all()
+    reviews = Review.query.filter_by(author=user.id).all()
     return render_template("reviews.html", user=current_user, reviews=reviews, username=username)
