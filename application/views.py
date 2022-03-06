@@ -96,7 +96,7 @@ def delete_comment(comment_id):
     return redirect(url_for("views.home"))
 
 
-@views.route("/like_review/<comment_id>", methods=["POST"])
+@views.route("/like_review/<review_id>", methods=["GET"])
 @login_required
 def like(review_id):
     review = Review.query.filter_by(id=review_id)
@@ -113,4 +113,4 @@ def like(review_id):
         db.session.add(like)
         db.session.commit() 
 
-    return redirect(url_for("views.like"))
+    return redirect(url_for("views.home"))

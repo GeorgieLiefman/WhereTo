@@ -7,8 +7,15 @@
         <div class="card-header d-flex justify-content-between align-items-center">
           <a href="/reviews/{{review.user.username}}">{{review.user.username}}</a>
           <div>
-            {{review.likes|length}}
-            <i class="fa-regular fa-thumbs-up"></i>
+            {{ review.likes|length }}
+            {% if user.id in review.likes|map(attribute="author")|list %}
+            <a href="/like_review/{{review.id}}"><i class="fas fa-thumbs-up"></i></a>
+            {% else %}
+            <a href="/like_review/{{review.id}}"><i class="far fa-thumbs-up"></i></a>
+            {% endif %}
+
+
+      
             {% if user.id == review.author %}
             <div class="btn-group">
               <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown"></button>
