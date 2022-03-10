@@ -1,15 +1,26 @@
 {% extends "base.html" %} 
 {% block title %}Create a Review{% endblock %} 
 {% block content%}
-    <h1 align="center">Create a Review</h1>
+<br>
+<h1 align="center">Create a Review</h1>
     
-    <form method="POST">
-      <textarea name="text" id="text" class="form-control"></textarea>
-      <br />
-      <div align="center">
-        <button type="submit" class="btn btn-lg btn-primary">Post</button>
-      </div>
-    </form>
+<form method="POST">
+  <label for="title">Title of your review</label>
+  <input type="text" id="title" name="title" class="form-control" placeholder="Summarise your experience or highlight an interesting detail"/>
+  <br>
+  <label for="content">Your review</label>
+  <input type="text" id="content" name="content" class="form-control" placeholder="Tell other travellers about your experience in detail."/>
+  <br>
+  <label for="content">Location of experience</label>
+  <input type="text" id="destination" name="destination" class="form-control" placeholder="In what city and country did the experience take place: (city, country)?"/>
+  <br>
+  <label for="category">Type of experince</label>
+  <input type="text" id="category" name="category" class="form-control" placeholder="What type of experience are you reviewing: (accomodation, flights, dining, activity, etc ..)?"/>
+  <br>
+  <div align="center">
+      <button type="submit" class="btn btn-lg btn-primary">Sumbit Review</button>
+  </div>
+</form>
     <br />
     <div align="center">
       <a href="/home"

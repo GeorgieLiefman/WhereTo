@@ -1,5 +1,5 @@
-{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
-    %}
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content%}
+    <br>
     <h1 align="center">{% block header %}Reviews{% endblock %}</h1>
     <div id="reviews">
       {% for review in reviews %}
@@ -7,16 +7,16 @@
         <div class="card-header d-flex justify-content-between align-items-center">
           <a href="/reviews/{{review.user.username}}">{{review.user.username}}</a>
           <div>
-            {{ review.likes|length }}
-            {% if user.id in review.likes|map(attribute="author")|list %}
-            <a href="/like_review/{{review.id}}"><i class="fas fa-thumbs-up"></i></a>
+            {{ review.hearts|length }}
+            {% if user.id in review.hearts|map(attribute="creator")|list %}
+            <a href="/heart_review/{{review.id}}"><i class="fa-solid fa-heart"></i></a>
             {% else %}
-            <a href="/like_review/{{review.id}}"><i class="far fa-thumbs-up"></i></a>
+            <a href="/heart_review/{{review.id}}"><i class="fa-regular fa-heart"></i></a>
             {% endif %}
 
 
       
-            {% if user.id == review.author %}
+            {% if user.id == review.creator %}
             <div class="btn-group">
               <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown"></button>
               <ul class="dropdown-menu">
@@ -29,21 +29,23 @@
           </div>
         </div>
         <div class="card-body">
-          <div class="card-text">{{review.text}}</div>
-          <br />
+          <div class="card-text"><strong><h1>{{review.title}}</h1></strong></div>
+          <div class="card-text">{{review.content}}</div>
+          <br>
+          <div class="card-text"><strong>Destination:</strong> {{review.destination}}</div>
+          <div class="card-text"><strong>Category:</strong> {{review.category}}</div>
+          <br/>
           <div class="collapse" id="comments-{{review.id}}">
             <div class="card">
               <div class="card-body" id="comments-expanded-{{review.id}}">
                 {% for comment in review.comments %}
                 <div class="d-flex justify-content-between align-items-center">
                   <div>
-                    <a href="/reviews/{{comment.user.username}}"
-                      >{{comment.user.username}}</a
-                    >: {{comment.text}}
+                    <a href="/reviews/{{comment.user.username}}">{{comment.user.username}}</a>: {{comment.content}}
                   </div>
                   <div>
                     <small class="text-muted"> {{comment.date_created}}</small>
-                    {% if user.id == comment.author or user.id == review.author %}
+                    {% if user.id == comment.creator or user.id == review.creator %}
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-bs-toggle="dropdown"></button>
                       <ul class="dropdown-menu">
