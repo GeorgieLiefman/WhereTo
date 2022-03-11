@@ -4,9 +4,9 @@ from .models import User
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
-auth = Blueprint("auth", __name__)
+user = Blueprint("auth", __name__)
 
-@auth.route("/login", methods=["GET", "POST"])
+@user.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         email = request.form.get("email")
@@ -25,7 +25,7 @@ def login():
 
     return render_template("login.html", user=current_user)
 
-@auth.route("/sign_up", methods=["GET", "POST"])
+@user.route("/sign_up", methods=["GET", "POST"])
 def sign_up():
     if request.method == "POST":
         email = request.form.get("email")
@@ -58,7 +58,7 @@ def sign_up():
     
     return render_template("signup.html", user=current_user)
 
-@auth.route("/log_out", methods=["GET"])
+@user.route("/log_out", methods=["GET"])
 @login_required
 def log_out():
     logout_user()

@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from flask_login import login_required, current_user
-from .models import Review, User, Comment, Like
+from .models import Review, User, Comment, Heart
 from . import db
 
 views = Blueprint("views", __name__)
@@ -103,12 +103,9 @@ def delete_comment(comment_id):
         db.session.commit()
         
     return redirect(url_for("views.home"))
-        
-
-    return redirect(url_for("views.home"))
 
 
-@views.route("/like_review/<review_id>", methods=["GET"])
+@views.route("/heart_review/<review_id>", methods=["GET"])
 @login_required
 def heart(review_id):
     review = Review.query.filter_by(id=review_id)
