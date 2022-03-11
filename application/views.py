@@ -51,12 +51,14 @@ def create_review():
 
         if not title:
             flash("A review cannot be created without a title.", category="error")
-        if not content:
+        elif not content:
             flash("The content of a review cannot be empty.", category="error")
-        if not destination:
+        elif not destination:
             flash("A destination needs to be entered to create a review.", category="error")
-        if not category:
+        elif not category:
             flash("Reviews cannot be created without the category of review being specified.", category="error")
+        elif not price:
+            flash("Reviews cannot be created without the price of review being specified. If the experience was free please specify so.", category="error")
         else:
             review = Review(title=title, content=content, destination=destination, category=category, price=price, creator=current_user.id)
             db.session.add(review)
@@ -85,8 +87,6 @@ def delete_review(id):
 
     if not review:
         flash("The review you are trying to delete does not exist.", category="error")
-    elif current_user.id != review.id:
-        flash("You do not have permission to delete this post.", category="error")
     else:
         db.session.delete(review)
         db.session.commit()
