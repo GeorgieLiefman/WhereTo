@@ -15,11 +15,15 @@ class User(db.Model, UserMixin):
 
 class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    text = db.Column(db.Text, nullable=False)
-    date_created = db.Column(db.DateTime(timezone=True), default=func.now())
-    author = db.Column(db.Integer, db.ForeignKey("user.id", ondelete="CASCADE"), nullable=False)
+    title = db.Column(db.Text, nullable=False)
+    content = db.Column(db.Text, nullable=False)
+    destination = db.Column(db.Text, nullable=False)
+    category = db.Column(db.Text, nullable=False)
+    price = db.Column(db.String(10), nullable=False)
+    creation_date = db.Column(db.DateTime(timezone=True), default=func.now())
+    creator = db.Column(db.Integer, db.ForeignKey("user.id", ondelete="CASCADE"), nullable=False)
     comments = db.relationship("Comment", backref="review", passive_deletes=True)
-    likes = db.relationship("Like", backref="review", passive_deletes=True)
+    hearts = db.relationship("Heart", backref="review", passive_deletes=True)
 
 class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
