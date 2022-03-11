@@ -7,10 +7,9 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(150), unique=True)
     username = db.Column(db.String(150), unique=True)
     password = db.Column(db.String(150))
-    date_created = db.Column(db.DateTime(timezone=True), default=func.now())
     reviews = db.relationship("Review", backref="user", passive_deletes=True)
     comments = db.relationship("Comment", backref="user", passive_deletes=True)
-    likes = db.relationship("Like", backref="user", passive_deletes=True)
+    hearts = db.relationship("Heart", backref="user", passive_deletes=True)
 
 
 class Review(db.Model):
