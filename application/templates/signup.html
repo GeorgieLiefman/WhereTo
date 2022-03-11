@@ -1,9 +1,19 @@
 {% extends "base.html" %}
 {% block title %}Signup{% endblock %} 
 {% block content %}
+<head>
+    <style>
+    body  {
+      background-image: url("https://www.wallpaperflare.com/static/210/835/729/photography-sunset-sky-clouds-wallpaper.jpg");
+      background-size:cover;
+    }
+    </style>
+</head>
+<body>
 <form method="Post">
+    <br><br>
+    <h2 align="center" style="color:#ffffff"><strong>Sign Up Below!</strong></h2>
     <br>
-    <h3 align="center">Signup</h3>
     <div class=""form-group>
 
         <input type="text" id="email" name="email" class="form-control" placeholder="Email address"/>
@@ -15,15 +25,16 @@
         <input type="password" id="password2" name="password2" class="form-control"  placeholder="Reenter password"/>
         <br>
         <div align="center">
-            <button class="btn btn-primary" type="submit">Sign Up</button>
+            <button class="btn" type="submit" style="background-color: #f4925f;">Sign Up</button>
         </div>
         <br>
         <div align="center">
             <a href="/login">
-                <button type="button" class="btn btn-primary">Already have an account? Login</button>
+                <button type="button" class="btn" style="background-color: #da694c;">Already have an account? Login</button>
             </a>
         </div>
     </div>
 </form>
 
 {% endblock %}
+</body>
