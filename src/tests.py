@@ -1,5 +1,5 @@
 import unittest
-from src.app import create_app
+from main import create_app
 import os
 
 os.environ["FLASK_ENV"] = "testing"

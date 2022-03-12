@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from flask_login import login_required, current_user
-from .models import Review, User, Comment, Heart
-from . import db
+from models.models import Review, User, Comment, Heart
+from main import db
 
 # Create a blueprint named views which will be used for routes relating to the reviews.
 views = Blueprint("views", __name__)
