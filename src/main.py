@@ -2,13 +2,13 @@ from flask import Flask, json, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 
-
 db = SQLAlchemy()
 
-
 def create_app(*args, **kwargs):
-    
-    # Creating the flask app object - this is the core of our app!
+    """
+    This function creates the application and is used to run the application.
+    """
+    # Creating the flask application object.
     app = Flask(__name__)
 
     app.config.from_object("config.app_config")
@@ -25,10 +25,11 @@ def create_app(*args, **kwargs):
     def load_user(id):
         return User.query.get(int(id))
 
+    # Register commands 
     from commands import db_commands
     app.register_blueprint(db_commands)
 
-    # Then we can register our routes!
+    # Register routes from application.
     from controllers import registerable_controllers
     for controller in registerable_controllers:
         app.register_blueprint(controller)
