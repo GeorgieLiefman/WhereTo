@@ -9,28 +9,18 @@ Link to Github repo: https://github.com/GeorgieLiefman/WhereTo_project
  
 
 # <center><span style="font-weight: bold; font-size: 18px;"><br>Functionality and Features of *WhereTo?*</center></span>
-- The application allows users to post reviews/stories about their previous travel experiences.
-- User posts consist of a title, description, destination, price and category of the subject of their review (for example restaurant, hotel or activity).
-- Authors of posts are able to delete their posts if they wish too.
-- Users are able to sign up to the site and user authentication is used where appropriate.
-- Users can comment and delete comments on a post.
-- Users are able to heart and unheart reviews.
-- The application is built through using AWS cloud services including: EC2 and Route 53.
-
-
-# <center><span style="font-weight: bold; font-size: 18px;"><br>Significant Libraries and Technologies</center></span>
-- Flask: The web framework was used to help build the application. Flask's varitey of tools, libraries and technologies aided in the application's construction. Notably, Flask has been used to handle authenitcation throughout the program. 
+- Flask: The web framework was used to help build the application. Flask's variety of tools, libraries and technologies aided in the application's construction. Notably, Flask has been used to handle authentication throughout the program.
 - Jinja: Jinja is a web template engine for the Python programming language. Jinja has been used in the program to create HTML templates for the Python scripts.
-- Bootstap: Bootstrap is a front-end framework used to create modern websites and web apps. The framework has been used in the application to alter the aesthetic of the site and to make the application fully responsive.
+- Bootstrap: Bootstrap is a front-end framework used to create modern websites and web apps. The framework has been used in the application to alter the aesthetic of the site and to make the application fully responsive.
 - Gunicorn: Gunicorn is a Python Web Server Gateway Interface HTTP server. The technology in combination with Nginx was used to deploy the application.
 - Nginx: Nginx is a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache. The technology in combination with Gunicorn was used to deploy the application.
-- PostgreSQL: PostgreSQL is a free and open-source relational database management system (RDBMS) emphasizing extensibility and SQL compliance. The tool is used in the application to store/reteive data relating to the user, review, comment and heart models.
+- PostgreSQL: PostgreSQL is a free and open-source relational database management system (RDBMS) which places an emphasis on extensibility and SQL compliance. The tool is used in the application to store/retrieve data relating to the user, review, comment and heart models.
 - EC2: EC2 instances provide scalable computing capacity in the AWS Cloud.In the application EC2 instances are used for running code on persistent infrastructure. EC2 has been used to run the flask application.
-- Route 53: Amazon Route 53 is a scalable and highly available Domain Name System service. Technology has been utilised to create a custom domain name for the site.
+- Route 53: Amazon Route 53 is a scalable and highly available Domain Name System service. The technology has been utilised to create a custom domain name for the site.
 
 
 # <center><span style="font-weight: bold; font-size: 18px;"><br>Deployment</center></span>
-*WhereTo?* has been deployed to AWS. The application has used a number of technologies in its deployment including: EC2, Route 53, Gunicorn and Nginx. Multiple environment variable were configured in the deployment of the site and screenshots of these configurations are attached below.
+*WhereTo?* has been deployed to AWS. The application has used a number of technologies in its deployment including: EC2, Route 53, Gunicorn and Nginx. Multiple environment variables were configured in the deployment of the site and screenshots of these configurations are attached below.
 
 ### <br><center>**Configuration of Security Group for Database** ###
 <img src="docs/images/configuration/security_group_db_1.png">
@@ -50,7 +40,7 @@ Link to Github repo: https://github.com/GeorgieLiefman/WhereTo_project
 
 
 # <center><span style="font-weight: bold; font-size: 18px;"><br>Appropriate use of Project Management Methodology</center></span>
-I chose to use an Agile project management methodology to ensure that I worked efficiently and productively whilst still delivering high quality work. I used a Trello board throughout the project which allowed me to track tasks, label each task with a difficult level, checklists and due dates. Additionally, the use of the Trello board has allowed me to prioritise tasks so I could make sure all the features which matter most to users are included and functional before I attempted to add in extra features. A number of screenshots of the Trello board used throughout the project are attached below.
+I chose to use an Agile project management methodology to ensure that I worked efficiently and productively whilst still delivering high quality work. I used a Trello board throughout the project which allowed me to track tasks, label each task with a difficult level, checklists and due dates. Additionally, the use of the Trello board allowed me to prioritise tasks so I could make sure all the features which matter most to users were included and functional before I attempted to add in extra features. A number of screenshots of the Trello board used throughout the project are attached below.
 
 ### <br><center>**Trello Screenshots** ###
 <img src="docs/images/trello/trello_1.png">
@@ -68,7 +58,7 @@ As the sole developer of *WhereTo?* all tasks for the project have been delegate
 
 
 # <center><span style="font-weight: bold; font-size: 18px;"><br>Testing during Development</center></span>
-Unittesting and a manual testing suite were used to test all features of the site during development.A screenshot of the Excel file of a manual test suite used for testing during development is attached below.
+Unittesting and a manual testing suite were used to test all features of the site during development. A screenshot of the Excel file of a manual test suite used for testing during development is attached below.
 
 ### <br><center>**Manual Testing Suite (Development)** ###
 <img src="docs/images/testing/development_testing_1.png">
@@ -93,30 +83,6 @@ A screenshot of the Excel file of a manual test suite used for testing during pr
 
 ### <br><center>**Client Testing Site on Alternate Computer** ###
 <img src="docs/images/testing/client_alternative_computer.png">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # <br><br><center> Real World App - Part A (README.md) <center>
