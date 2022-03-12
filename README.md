@@ -13,13 +13,13 @@
 - The application utilises DevOps technologies including: version control (git/Github and webhooks) and Docker.
 
 ### <br><center>**Significant Libraries and Technologies** ###
-- Flask: The framework is used to 
+- Flask: The web framework was used to help build the application. Flask's varitey of tools, libraries and technologies aided in the application's construction. Notably, Flask has been used to handle authenitcation throughout the program. 
 - SQLite: SQLite is the database technology chosen for the application. 
-- EC2: The Flask application is hosted on an AWS EC2 instance. Two separate EC2 instances are being used to incorporate 
-- Load Balancer:
+- EC2: In the application EC2 instances are used for running code on persistent infrastructure. EC2 has been used to run the flask application.
+- Load Balancer: Inbound application traffic is distributed over multiple EC2 instances, across several Availability Zones via the load balancer.
 - API Gateway:
-- Docker:
-- Git:
+- Docker: Docker's features and ability for containerising programs that enable development and rapid release make it ideal for the DevOps pipeline. The tool is important to the app since it ensures that any functionality that works in the development platform will also work in the production and staging environments.
+- Git/Github:
 
 
 ### <br><center>**Appropriate use of Project Management Methodology** ###
@@ -33,6 +33,8 @@ As the sole developer of *WhereTo?* all tasks for the project have been delegate
 A screenshot of the Excel file of a manual test suite used for testing during development is attached below.
 
 <img src="docs/images/testing/development_testing_1.png">
+<img src="docs/images/testing/development_testing_2.png">
+
 
 ### <br><center>**Testing during Production** ###
 A screenshot of the Excel file of a manual test suite used for testing during production is attached below. Images of a client using/testing the site are also included below.
