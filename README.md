@@ -1,6 +1,6 @@
 # <center> *WhereTo?* <center>
 
-Link to live site:
+Link to live site: http://whereto.site/ 
 
 Link to Github repo: https://github.com/GeorgieLiefman/WhereTo_project
 
