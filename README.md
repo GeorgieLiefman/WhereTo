@@ -9,14 +9,24 @@ Link to Github repo: https://github.com/GeorgieLiefman/WhereTo_project
  
 
 # <center><span style="font-weight: bold; font-size: 18px;"><br>Functionality and Features of *WhereTo?*</center></span>
+- The application allows users to post reviews/stories about their previous travel experiences.
+- User posts consist of a title, description, destination, price and category of the subject of their review (for example restaurant, hotel or activity).
+- Authors of posts are able to delete their posts if they wish too.
+- Users are able to sign up to the site and user authentication is used where appropriate.
+- Users can comment and delete comments on a post.
+- Users are able to heart and unheart reviews.
+- The application is built through using AWS cloud services including: EC2 and Route 53.
+
+
+# <center><span style="font-weight: bold; font-size: 18px;"><br>Significant Libraries and Technologies</center></span>
 - Flask: The web framework was used to help build the application. Flask's variety of tools, libraries and technologies aided in the application's construction. Notably, Flask has been used to handle authentication throughout the program.
 - Jinja: Jinja is a web template engine for the Python programming language. Jinja has been used in the program to create HTML templates for the Python scripts.
 - Bootstrap: Bootstrap is a front-end framework used to create modern websites and web apps. The framework has been used in the application to alter the aesthetic of the site and to make the application fully responsive.
 - Gunicorn: Gunicorn is a Python Web Server Gateway Interface HTTP server. The technology in combination with Nginx was used to deploy the application.
 - Nginx: Nginx is a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache. The technology in combination with Gunicorn was used to deploy the application.
-- PostgreSQL: PostgreSQL is a free and open-source relational database management system (RDBMS) which places an emphasis on extensibility and SQL compliance. The tool is used in the application to store/retrieve data relating to the user, review, comment and heart models.
+- PostgreSQL: PostgreSQL is a free and open-source relational database management system (RDBMS) emphasizing extensibility and SQL compliance. The tool is used in the application to store/retrieve data relating to the user, review, comment and heart models.
 - EC2: EC2 instances provide scalable computing capacity in the AWS Cloud.In the application EC2 instances are used for running code on persistent infrastructure. EC2 has been used to run the flask application.
-- Route 53: Amazon Route 53 is a scalable and highly available Domain Name System service. The technology has been utilised to create a custom domain name for the site.
+- Route 53: Amazon Route 53 is a scalable and highly available Domain Name System service. Technology has been utilised to create a custom domain name for the site.
 
 
 # <center><span style="font-weight: bold; font-size: 18px;"><br>Deployment</center></span>
